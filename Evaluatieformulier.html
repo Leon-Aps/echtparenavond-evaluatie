@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluatieformulier Echtparenavond</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffe6e6, #fff0f5);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: left;
+        }
+        h1 {
+            color: #c2185b;
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        textarea, input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #f9f9f9;
+        }
+        textarea:focus, input:focus, select:focus {
+            border-color: #c2185b;
+            outline: none;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #c2185b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .button:hover {
+            background-color: #ad1457;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Evaluatieformulier Echtparenavond</h1>
+        <p style="text-align: center; color: #333;">Georganiseerd door Stichting JMI - Thema: Liefde en Verbinding</p>
+        <form id="evaluationForm">
+            <label for="name">Naam:</label>
+            <input type="text" id="name" name="name" placeholder="Vul je naam in">
+
+            <label for="eventRating">Hoe beoordeel je de echtparenavond?</label>
+            <select id="eventRating" name="eventRating">
+                <option value="1">1 - Slecht</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 - Uitstekend</option>
+            </select>
+
+            <label for="gameRating">Hoe beoordeel je het Energie-audit spel?</label>
+            <select id="gameRating" name="gameRating">
+                <option value="1">1 - Slecht</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 - Uitstekend</option>
+            </select>
+
+            <label for="favoritePart">Wat vond je het leukste onderdeel van de avond?</label>
+            <textarea id="favoritePart" name="favoritePart" placeholder="Beschrijf je favoriete onderdeel"></textarea>
+
+            <label for="improvements">Heb je suggesties voor verbetering?</label>
+            <textarea id="improvements" name="improvements" placeholder="Deel je suggesties"></textarea>
+
+            <label for="additionalComments">Overige opmerkingen:</label>
+            <textarea id="additionalComments" name="additionalComments" placeholder="Plaats hier je overige opmerkingen"></textarea>
+
+            <button type="submit" class="button">Verzenden</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 Stichting JMI. Alle rechten voorbehouden. Thema: Liefde en Verbinding.
+    </footer>
+
+    <script>
+        document.getElementById('evaluationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = "sumtergas@gmail.com";
+            const name = document.getElementById('name').value;
+            const eventRating = document.getElementById('eventRating').value;
+            const gameRating = document.getElementById('gameRating').value;
+            const favoritePart = document.getElementById('favoritePart').value;
+            const improvements = document.getElementById('improvements').value;
+            const additionalComments = document.getElementById('additionalComments').value;
+
+            const body = `Naam: ${name}%0A
+            Beoordeling Echtparenavond: ${eventRating}%0A
+            Beoordeling Energie-audit spel: ${gameRating}%0A
+            Favoriet Onderdeel: ${favoritePart}%0A
+            Suggesties: ${improvements}%0A
+            Overige opmerkingen: ${additionalComments}`;
+
+            window.location.href = `mailto:${email}?subject=Evaluatie Echtparenavond&body=${body}`;
+            alert('Bedankt voor het invullen van de evaluatie!');
+        });
+    </script>
+</body>
+</html>
